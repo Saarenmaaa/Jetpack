@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class PlayerController : MonoBehaviour
     private bool JetPackOn;
     public LayerMask groundLayer;
     public GameObject explosionPrefab;
+    public AudioSource gemÄäni;
+    public AudioClip häviö;
+    public GemChecker gemChecker;
+    public AudioSource thruster;
+    private bool soundOff = true;
+    public GameController game;
 
     void Update()
     {
@@ -28,10 +35,17 @@ public class PlayerController : MonoBehaviour
         if (verticalInput > 0)
         {
             JetPackOn = true;
+            if(soundOff && !isGrounded)
+            {
+                thruster.Play();
+                soundOff = false;
+            }
         }
         else
         {
             JetPackOn = false;
+            thruster.Stop();
+            soundOff = true;
         }
 
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayer);
@@ -59,10 +73,31 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Spike"))
         {
+            Lose();
             gameObject.SetActive(false);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+        if (other.CompareTag("SpikeBall"))
+        {
+            Lose();
+            gameObject.SetActive(false);
+        }
+        if (other.CompareTag("Gem"))
+        {
+            Destroy(other.gameObject);
+            gemÄäni.Play();
+            gemChecker.Gem();
         }
     }
+    private void Lose()
+    {
+        game.IncrementAttempt();
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(häviö, transform.position);
+        Invoke("Wait", 2.5f);
+    }
 
-
+    private void Wait()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

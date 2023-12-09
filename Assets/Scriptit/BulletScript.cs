@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public GameObject smallExplosion;
+    public AudioClip räjähdys;
+
     void Update()
     {
         OffScreen();
@@ -29,5 +32,12 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (other.CompareTag("SpikeBall"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(smallExplosion, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(räjähdys, transform.position);
+        }
+        
     }
 }

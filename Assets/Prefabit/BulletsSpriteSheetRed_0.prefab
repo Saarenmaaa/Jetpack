@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cf42d6a00d50a40bbfd60342da4787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smallExplosion: {fileID: 139366, guid: 369c1487f141190498311c3dffe71fc0, type: 3}
+  "r\xE4j\xE4hdys": {fileID: 8300000, guid: 5840ccd7638abff4887f6fcc00520c0c, type: 3}
 --- !u!70 &-4094410570111763880
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
