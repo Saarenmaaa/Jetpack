@@ -458,7 +458,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 62820787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 821048423}
+        m_TargetAssemblyTypeName: StartStop, Assembly-CSharp
+        m_MethodName: StopButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &62820787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2842,7 +2854,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 816282012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 821048423}
+        m_TargetAssemblyTypeName: StartStop, Assembly-CSharp
+        m_MethodName: StartButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &816282012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2932,6 +2956,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9882ae549ab3b0a47a26cfe03932c316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 816282009}
+  stopButton: {fileID: 62820784}
+  audioListener: {fileID: 519420029}
 --- !u!1 &826360136
 GameObject:
   m_ObjectHideFlags: 0
