@@ -40,4 +40,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

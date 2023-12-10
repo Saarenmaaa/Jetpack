@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     private bool soundOff = true;
     public GameController game;
 
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
     void Update()
     {
         PlayerMovement();        
@@ -88,16 +92,16 @@ public class PlayerController : MonoBehaviour
             gemChecker.Gem();
         }
     }
-    private void Lose()
+    public void Lose()
     {
-        game.IncrementAttempt();
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         AudioSource.PlayClipAtPoint(häviö, transform.position);
-        Invoke("Wait", 2.5f);
+        Invoke("Again", 2.5f);
     }
 
-    private void Wait()
+    public void Again()
     {
-        SceneManager.LoadScene(0);
+        game.IncrementAttempt();
+        SceneManager.LoadScene(2);
     }
 }

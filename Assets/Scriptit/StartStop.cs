@@ -7,12 +7,14 @@ public class StartStop : MonoBehaviour
 {
     public GameObject startButton;
     public GameObject stopButton;
+    public GameObject stopScreen;
     public AudioListener audioListener;
 
     void Start()
     {
         startButton.SetActive(false);
         stopButton.SetActive(true);
+        stopScreen.SetActive(false);
         audioListener.enabled = true;
     }
 
@@ -20,6 +22,7 @@ public class StartStop : MonoBehaviour
     {
         startButton.SetActive(false);
         stopButton.SetActive(true);
+        stopScreen.SetActive(false);
 
         Time.timeScale = 1f;
         audioListener.enabled = true;
@@ -29,6 +32,7 @@ public class StartStop : MonoBehaviour
     {
         startButton.SetActive(true);
         stopButton.SetActive(false);
+        stopScreen.SetActive(true);
         Time.timeScale = 0f;
 
         audioListener.enabled = false;

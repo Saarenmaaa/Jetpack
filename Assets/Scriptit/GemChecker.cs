@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GemChecker : MonoBehaviour
 {
     public List<GameObject> CanvasGemArray;
+    public List<GameObject> WinGemArray;
+
     public void Gem()
     {
         GameObject firstGem = CanvasGemArray[0];
@@ -14,5 +16,13 @@ public class GemChecker : MonoBehaviour
         currentColor.a = 1f;
         gemImage.color = currentColor;
         CanvasGemArray.RemoveAt(0);
+
+
+        GameObject winGem = WinGemArray[0];
+        Image winImage = winGem.GetComponent<Image>();
+        Color winColor = winImage.color;
+        winColor.a = 1f;
+        winImage.color = winColor;
+        WinGemArray.RemoveAt(0);
     }
 }
