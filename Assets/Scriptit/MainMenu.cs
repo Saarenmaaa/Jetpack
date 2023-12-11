@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject infoScreen;
+    public GameObject Sure;
+
     public void Quits()
     {
         Application.Quit();
@@ -25,9 +27,21 @@ public class MainMenu : MonoBehaviour
         infoScreen.SetActive(false);
     }
 
+    public void  yesSure()
+    {
+        Sure.SetActive(false);
+    }
+
+    public void noSure()
+    {
+        Sure.SetActive(true);
+    }
+
+
     public void reset()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
+        Sure.SetActive(false);
     }
 }

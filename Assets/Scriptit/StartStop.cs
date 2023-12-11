@@ -8,14 +8,13 @@ public class StartStop : MonoBehaviour
     public GameObject startButton;
     public GameObject stopButton;
     public GameObject stopScreen;
-    public AudioListener audioListener;
 
     void Start()
     {
         startButton.SetActive(false);
         stopButton.SetActive(true);
         stopScreen.SetActive(false);
-        audioListener.enabled = true;
+        AudioListener.volume = 1f;
     }
 
     public void StartButtonClick()
@@ -25,7 +24,7 @@ public class StartStop : MonoBehaviour
         stopScreen.SetActive(false);
 
         Time.timeScale = 1f;
-        audioListener.enabled = true;
+        AudioListener.volume = 1f;
     }
 
     public void StopButtonClick()
@@ -35,6 +34,6 @@ public class StartStop : MonoBehaviour
         stopScreen.SetActive(true);
         Time.timeScale = 0f;
 
-        audioListener.enabled = false;
+        AudioListener.volume = 0f;
     }
 }

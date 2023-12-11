@@ -5686,7 +5686,6 @@ MonoBehaviour:
   startButton: {fileID: 816282009}
   stopButton: {fileID: 62820784}
   stopScreen: {fileID: 1537697074}
-  audioListener: {fileID: 519420029}
 --- !u!1 &826360136
 GameObject:
   m_ObjectHideFlags: 0
@@ -28434,7 +28433,7 @@ Transform:
   m_GameObject: {fileID: 7118676043735576757}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 0, z: 0.4071705}
+  m_LocalPosition: {x: -1.2, y: 0, z: 0.4071705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

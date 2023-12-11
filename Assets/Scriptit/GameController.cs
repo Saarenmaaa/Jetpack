@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public int gemCount;
     void Start()
     {
-        attempts = PlayerPrefs.GetInt("AttemptCount", 0);
+        attempts = PlayerPrefs.GetInt("AttemptCount", 1);
         UpdateAttemptText();
         gemCount = 0;
     }
