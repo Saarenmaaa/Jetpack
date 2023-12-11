@@ -7,6 +7,7 @@ public class GemChecker : MonoBehaviour
 {
     public List<GameObject> CanvasGemArray;
     public List<GameObject> WinGemArray;
+    public GameController games;
 
     public void Gem()
     {
@@ -24,5 +25,7 @@ public class GemChecker : MonoBehaviour
         winColor.a = 1f;
         winImage.color = winColor;
         WinGemArray.RemoveAt(0);
+
+        games.addOne();
     }
 }

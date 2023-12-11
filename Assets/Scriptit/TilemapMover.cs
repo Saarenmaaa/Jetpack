@@ -43,6 +43,13 @@ public class TilemapController : MonoBehaviour
         Time.timeScale = 0f;
         winScreen.SetActive(true);
         // send diamonds and completed.
+
+    }
+
+    public void StartSpeed()
+    {
+        scrollSpeedMax = 0f;
+        startSpeed = 0f;
     }
 }
 

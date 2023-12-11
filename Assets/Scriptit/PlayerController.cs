@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource thruster;
     private bool soundOff = true;
     public GameController game;
+    public TilemapController Move;
+    public int ThisScene;
 
     void Start()
     {
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Lose()
     {
+        Move.StartSpeed();
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         AudioSource.PlayClipAtPoint(häviö, transform.position);
         Invoke("Again", 2.5f);
@@ -102,6 +105,6 @@ public class PlayerController : MonoBehaviour
     public void Again()
     {
         game.IncrementAttempt();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(ThisScene);
     }
 }

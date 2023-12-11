@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public TMP_Text attemptText;
     private int attempts = 0;
-
+    public int gemCount;
     void Start()
     {
         attempts = PlayerPrefs.GetInt("AttemptCount", 0);
         UpdateAttemptText();
+        gemCount = 0;
     }
 
     void UpdateAttemptText()
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
 
     public void ResetAttempts()
     {
-        attempts = 0;
+        attempts = 1;
         UpdateAttemptText();
     }
 
@@ -43,5 +45,49 @@ public class GameController : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+        ResetAttempts();
+    }
+
+    public void Menut()
+    {
+        ResetAttempts();
+        SceneManager.LoadScene(1);
+    }
+
+    public void WinMenut1()
+    {
+        ResetAttempts();
+        if(gemCount > PlayerPrefs.GetInt("Level1", 0))
+        {
+            PlayerPrefs.SetInt("Level1", gemCount);
+            PlayerPrefs.Save();
+        }
+        SceneManager.LoadScene(1);
+    }
+    public void WinMenut2()
+    {
+        ResetAttempts();
+        if(gemCount > PlayerPrefs.GetInt("Level2", 0))
+        {
+            PlayerPrefs.SetInt("Level2", gemCount);
+            PlayerPrefs.Save();
+        }
+        SceneManager.LoadScene(1);
+    }
+    public void WinMenut3()
+    {
+        ResetAttempts();
+        if(gemCount > PlayerPrefs.GetInt("Level3", 0))
+        {
+            PlayerPrefs.SetInt("Level3", gemCount);
+            PlayerPrefs.Save();
+        }
+        SceneManager.LoadScene(1);
+    }
+
+    public void addOne()
+    {
+        gemCount++;
+        print(gemCount);
     }
 }

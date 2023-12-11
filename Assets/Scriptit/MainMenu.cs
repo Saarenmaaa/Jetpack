@@ -24,4 +24,10 @@ public class MainMenu : MonoBehaviour
     {
         infoScreen.SetActive(false);
     }
+
+    public void reset()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
 }
