@@ -17,10 +17,6 @@ public class GunScript : MonoBehaviour
    void Update()
    {  
       ammo.text = clip.ToString();
-      if(Input.GetButtonDown("Jump"))
-      {
-         Fire();
-      }
    }
    public void Fire()
    {

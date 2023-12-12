@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public TilemapController Move;
     public int ThisScene;
 
+    [SerializeField] private InputActionReference leftStickInputAction;
+
     void Start()
     {
         Time.timeScale = 1f;
@@ -35,8 +38,9 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        Vector2 leftStickInput = leftStickInputAction.action.ReadValue<Vector2>();
+        float horizontalInput = leftStickInput.x;
+        float verticalInput = leftStickInput.y;
 
         if (verticalInput > 0)
         {
